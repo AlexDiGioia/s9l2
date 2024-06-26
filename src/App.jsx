@@ -3,18 +3,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav.jsx";
 import MyFooter from "./components/MyFooter.jsx";
 import Welcome from "./components/Welcome.jsx";
-import AllTheBooks from "./AllTheBooks.jsx";
+import AllTheBooks from "./components/AllTheBooks.jsx";
+import { Component } from "react";
 
-function App() {
-  return (
-    <>
-      <MyNav claim="Bellissima" />
+class App extends Component {
+  state = {
+    categoria: "fantasy",
+  };
+  
+  // funzione che modifica lo state categoria grazie al eventKey
+  selectCategory = eventKey => {
+   this.setState({ categoria: eventKey })
+   };
+  render() {
+    return (
+      <>
+        <MyNav claim="Bellissima" setCategory={this.selectCategory} />
 
-      <Welcome sottotitolo="Sito Bello"/>
-      <AllTheBooks />
-      <MyFooter />
-    </>
-  );
+        <Welcome sottotitolo="Sito Bello" />
+        <AllTheBooks category={this.state.categoria}/>
+        <MyFooter />
+      </>
+    );
+  }
 }
 
 export default App;
