@@ -3,8 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNav from "./components/MyNav.jsx";
 import MyFooter from "./components/MyFooter.jsx";
 import Welcome from "./components/Welcome.jsx";
-import AllTheBooks from "./components/AllTheBooks.jsx";
+//import AllTheBooks from "./components/AllTheBooks.jsx";
 import { Component } from "react";
+import BookList from "./components/BookList.jsx";
 
 class App extends Component {
   state = {
@@ -21,7 +22,9 @@ class App extends Component {
         <MyNav claim="Bellissima" setCategory={this.selectCategory} />
 
         <Welcome sottotitolo="Sito Bello" />
-        <AllTheBooks category={this.state.categoria}/>
+        <BookList/>
+
+        {/* <AllTheBooks category={this.state.categoria}/> */}
         <MyFooter />
       </>
     );
